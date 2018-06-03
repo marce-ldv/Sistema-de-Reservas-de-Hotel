@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class LoginGUI extends JFrame implements ActionListener{
 
+    private JPanel jPanel;
     private JTextField textFieldUsername;
     private JPasswordField passwordField;
     private JButton btnSalir;
@@ -32,6 +33,10 @@ public class LoginGUI extends JFrame implements ActionListener{
     private void inicializarComponentes() {
         // creamos los componentes
         setIconImage(getIconImage());
+        jPanel = new JPanel();
+        jPanel.setBounds(0,0,800,600);
+        jPanel.setLayout(null);
+
         textFieldUsername = new javax.swing.JTextField();
         textFieldUsername.setBounds(300,330,170,30);
         //textFieldUsername.setText("Ingrese su usuario: ");
@@ -58,21 +63,22 @@ public class LoginGUI extends JFrame implements ActionListener{
         jlabelPassword = new javax.swing.JLabel("Contrasena: ");
         jlabelPassword.setBounds(300,360,170,30);
 
-        this.add(textFieldUsername);
-        this.add(passwordField);
-        this.add(btnSalir);
-        this.add(btnLoguearse);
-        this.add(jlabelUsuario);
-        this.add(jlabelPassword);
+        jPanel.add(textFieldUsername);
+        jPanel.add(passwordField);
+        jPanel.add(btnSalir);
+        jPanel.add(btnLoguearse);
+        jPanel.add(jlabelUsuario);
+        jPanel.add(jlabelPassword);
+        this.add(jPanel);
     }
 
     @Override
     public Image getIconImage() {
-        Image retValue;
-        retValue = Toolkit.getDefaultToolkit().
+        Image miImagen;
+        miImagen = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("resources/userIcon.png"));
 
-        return retValue; //devuelve una imagen
+        return miImagen; //devuelve una imagen
     }
 
     @Override
