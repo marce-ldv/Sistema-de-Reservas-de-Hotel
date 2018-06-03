@@ -27,6 +27,7 @@ public class LoginGUI extends JFrame implements ActionListener{
 
     /**
      * Este metodo se encarga de configurar la ventana principal
+     * @param
      */
     private void configurarVentana() {
         this.setTitle("Login");                   // colocamos titulo a la ventana
@@ -40,6 +41,7 @@ public class LoginGUI extends JFrame implements ActionListener{
     /**
      * Este metodo se encarga de inicializar los componentes
      * es decir crear paneles, instanciar JLabels, crear botones, etc
+     * @param
      */
     private void inicializarComponentes() {
         // creamos los componentes
@@ -91,6 +93,7 @@ public class LoginGUI extends JFrame implements ActionListener{
     /**
      * Este metodo se encarga de devolver un objeto de tipo Image
      * Lo utilizamos para setear un icono a la ventana del jframe actual
+     * @param
      */
     @Override
     public Image getIconImage() {
@@ -104,6 +107,7 @@ public class LoginGUI extends JFrame implements ActionListener{
     /**
      * Este metodo es un metodo abstracto que esta sobreescrito de la implementacion de la
      * interfaz ActionListener
+     * @param
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -113,6 +117,7 @@ public class LoginGUI extends JFrame implements ActionListener{
 
     /**
      * En este metodo se ejecutara al presionar el boton btnSalir
+     * @param
      */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt){
         dispose();
@@ -120,6 +125,7 @@ public class LoginGUI extends JFrame implements ActionListener{
 
     /**
      * En este metodo se ejecutara al presionar el boton btnSalir
+     * @param
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         //aqui se programara el boton iniciar sesion
@@ -129,6 +135,7 @@ public class LoginGUI extends JFrame implements ActionListener{
      * Main method, utiliza la interfaz Runnable para que podamos ejecutar
      * varios hilos a la vez y el programa no tenga que esperar el fin de la ejecucion de cada hilo
      * En el metodo run se le da una visibilidad de true
+     * @param args
      */
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable(){
