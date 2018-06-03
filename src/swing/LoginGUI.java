@@ -2,8 +2,8 @@ package swing;
 
 import javax.swing.*;
 
-public class Login extends JFrame{
+public class LoginGUI extends JFrame{
 
-    //aqui ira mi jframe
+    //aqui ira mi jframe GUI
 
 }
