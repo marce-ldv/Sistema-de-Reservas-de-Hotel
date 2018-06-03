@@ -17,7 +17,7 @@ public class LoginGUI extends JFrame implements ActionListener{
 
     /**
      * Constructor que llama al constructor por defecto de la clase padre JFrame
-     * llamada a los metodos configurar ventana e inicializar componentes
+     * llamada a los metodos configurar ventana e inicializar componentes.
      */
     public LoginGUI() {
         super();                    // usamos el contructor de la clase padre JFrame
