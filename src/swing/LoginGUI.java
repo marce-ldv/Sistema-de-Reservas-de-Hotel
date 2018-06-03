@@ -31,29 +31,48 @@ public class LoginGUI extends JFrame implements ActionListener{
 
     private void inicializarComponentes() {
         // creamos los componentes
+        setIconImage(getIconImage());
         textFieldUsername = new javax.swing.JTextField();
-        textFieldUsername.setBounds(200,100,200,30);
+        textFieldUsername.setBounds(300,330,170,30);
+        //textFieldUsername.setText("Ingrese su usuario: ");
+
         passwordField = new javax.swing.JPasswordField();
-        passwordField.setBounds(200,150,200,30);
+        passwordField.setBounds(300,390,170,30);
+
         btnSalir = new javax.swing.JButton();
-        btnSalir.setBounds(20,20,150,70);
+        btnSalir.setBounds(20,20,70,25);
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
                 btnSalirActionPerformed(evt);
             }
         });
+
         btnLoguearse = new javax.swing.JButton();
-        btnLoguearse.setBounds(120,120,100,50);
-        btnLoguearse.setText("Login");
+        btnLoguearse.setBounds(300,450,170,40);
+        btnLoguearse.setText("Iniciar Sesion");
+
         jlabelUsuario = new javax.swing.JLabel("Usuario: ");
-        jlabelUsuario.setBounds(100,80,200,30);
+        jlabelUsuario.setBounds(300,300,170,30);
+
+        jlabelPassword = new javax.swing.JLabel("Contrasena: ");
+        jlabelPassword.setBounds(300,360,170,30);
 
         this.add(textFieldUsername);
         this.add(passwordField);
         this.add(btnSalir);
         this.add(btnLoguearse);
         this.add(jlabelUsuario);
+        this.add(jlabelPassword);
+    }
+
+    @Override
+    public Image getIconImage() {
+        Image retValue;
+        retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("resources/userIcon.png"));
+
+        return retValue; //devuelve una imagen
     }
 
     @Override
