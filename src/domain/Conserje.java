@@ -6,7 +6,7 @@ public class Conserje extends Usuario{
 	Pasajero Pasajero;
 	Habitacion habitacion= new Habitacion();
 	HashMap<Integer, Habitacion>ListaHabitaciones;
-
+/*
 	public void listar(String nomPelicula)
 	{
 	    Iterator it = MapaPelicula.entrySet().iterator();
@@ -18,4 +18,5 @@ public class Conserje extends Usuario{
 	          MapaPelicula.remove( me.getKey());
 	        }
 	    }
+	    */
 }
