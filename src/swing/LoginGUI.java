@@ -17,7 +17,6 @@ public class LoginGUI extends JFrame implements ActionListener{
     private JButton btnLoguearse;
     private JLabel jlabelUsuario;
     private JLabel jlabelPassword;
-    private JLabel jlabelFondo;
     private String nombreUsuario,contrasena;
     Component confirmacion;
 
@@ -88,13 +87,7 @@ public class LoginGUI extends JFrame implements ActionListener{
         jlabelPassword = new javax.swing.JLabel("Contrasena: ");
         jlabelPassword.setBounds(300,360,170,30);
 
-        jlabelFondo = new javax.swing.JLabel();
-        jlabelFondo.setForeground(new java.awt.Color(255, 255, 255));
-        //jlabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/blueE.jpg")));
-        jlabelFondo.setMaximumSize(new java.awt.Dimension(800, 600));
-        jlabelFondo.setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jPanel.add(jlabelFondo);
         jPanel.add(textFieldUsername);
         jPanel.add(passwordField);
         jPanel.add(btnSalir);

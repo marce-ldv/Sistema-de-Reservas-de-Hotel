@@ -31,8 +31,31 @@ public class Usuario{
      * Este metodo permite hacer la validacion del login
      * Recibe como argumentos las cadenas de texto del usuario y contraseña
      */
+    /*
     public boolean loguearse(String user,String pass){
 
+        if((usuario.equals(user)) && (password.equals(pass))){
+            return true;
+        }else if((usuario.equals("")) && (password.equals(""))){
+            JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
+            return false;
+        }else if((usuario.equals(""))){
+            JOptionPane.showMessageDialog(null,"El campo usuario esta vacio");
+            return false;
+        }else if((password.equals(""))){
+            JOptionPane.showMessageDialog(null,"El campo password esta vacio");
+            return false;
+        }else if((usuario.compareTo(user) != 0) && (password.compareTo(pass) != 0)){
+            JOptionPane.showMessageDialog(null,"Usuario o contrasenia incorrectos");
+            return false;
+        }else{
+            return false;
+        }
+    }
+    */
+    public boolean loguearse(String user,String pass){
+        //modificar este metodo y lanzar un new TipoExeption();
+        //Luego en la interfaz grafica encerrar la llamada a este metodo en un try catch
         if((usuario.equals(user)) && (password.equals(pass))){
             return true;
         }else if((usuario.equals("")) && (password.equals(""))){
