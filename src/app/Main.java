@@ -1,4 +1,6 @@
 package app;
+import swing.LoginGUI;
+import javax.swing.*;
 
 public class Main {
 
@@ -7,8 +9,8 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		System.out.println("sadaasds");
+		LoginGUI login =new LoginGUI();
+		login.setVisible(true);
 
 	}
 
