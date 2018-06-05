@@ -31,7 +31,7 @@ public class Usuario{
     public boolean loguearse(){
         LoginGUI loginGui = new LoginGUI();
         datosLogin(usuario,password);
-        if((usuario.equals(loginGui.textFieldUsername.getText())) && (password.equals(loginGui.passwordField.getText()))){
+        if((usuario.equals(loginGui.getTextFieldUsername())) && (password.equals(loginGui.getPasswordField()))){
             return true;
         }
         return false;

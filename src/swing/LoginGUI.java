@@ -10,8 +10,8 @@ import javax.swing.*;
 public class LoginGUI extends JFrame implements ActionListener{
 
     private JPanel jPanel;
-    public JTextField textFieldUsername;
-    public JPasswordField passwordField;
+    private JTextField textFieldUsername;
+    private JPasswordField passwordField;
     private JButton btnSalir;
     private JButton btnLoguearse;
     private JLabel jlabelUsuario;
@@ -141,6 +141,14 @@ public class LoginGUI extends JFrame implements ActionListener{
             adminGUI.setVisible(true);
             this.dispose(); //cierro la ventana actual
         }
+    }
+
+    public JTextField getTextFieldUsername() {
+        return textFieldUsername;
+    }
+
+    public JPasswordField getPasswordField() {
+        return passwordField;
     }
 
     /**
