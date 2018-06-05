@@ -1,6 +1,7 @@
 package swing;
 
 import domain.Usuario;
+import jdk.nashorn.internal.scripts.JO;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -77,7 +78,6 @@ public class LoginGUI extends JFrame implements ActionListener{
         btnLoguearse.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
                 btnLoguearseActionPerformed(evt);
-                JOptionPane.showMessageDialog(null,"Sesion iniciada ?? ");
             }
         });
 
@@ -137,9 +137,12 @@ public class LoginGUI extends JFrame implements ActionListener{
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
         if(us.loguearse()){
+            JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
             AdministradorGUI adminGUI = new AdministradorGUI();
             adminGUI.setVisible(true);
-            this.dispose(); //cierro la ventana actual
+            //this.dispose(); //cierro la ventana actual
+        }else{
+            JOptionPane.showMessageDialog(null,"No has podido iniciar sesion");
         }
     }
 

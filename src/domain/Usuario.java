@@ -33,7 +33,9 @@ public class Usuario{
         datosLogin(usuario,password);
         if((usuario.equals(loginGui.getTextFieldUsername())) && (password.equals(loginGui.getPasswordField()))){
             return true;
+        }else {
+            return false;
         }
-        return false;
+
     }
 }
