@@ -3,6 +3,8 @@ package domain;
 import swing.AdministradorGUI;
 import swing.LoginGUI;
 
+import javax.swing.*;
+
 public class Usuario{
 
     private String usuario,password;
@@ -28,14 +30,24 @@ public class Usuario{
         this.password="admin";
     }
 
-    public boolean loguearse(){
+    /**
+     * Este metodo permite hacer la validacion del login
+     * Recibe como argumentos la caja de texto del usuario en el Jframe y tambien de la password
+     * JTextField y JPasswordField
+     * @param usTextField
+     * @param passField
+     * @return
+     */
+    public boolean loguearse(JTextField usTextField,JPasswordField passField){
         LoginGUI loginGui = new LoginGUI();
         datosLogin(usuario,password);
-        if((usuario.equals(loginGui.getTextFieldUsername())) && (password.equals(loginGui.getPasswordField()))){
+
+        if((usuario.equals(usTextField)) && (password.equals(passField))){
+            JOptionPane.showMessageDialog(null,"funciono");
             return true;
         }else {
+            JOptionPane.showMessageDialog(null,"No funciono");
             return false;
         }
-
     }
 }

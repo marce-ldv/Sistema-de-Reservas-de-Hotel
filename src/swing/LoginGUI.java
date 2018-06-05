@@ -136,7 +136,7 @@ public class LoginGUI extends JFrame implements ActionListener{
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
-        if(us.loguearse()){
+        if(us.loguearse(textFieldUsername,passwordField)){
             JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
             AdministradorGUI adminGUI = new AdministradorGUI();
             adminGUI.setVisible(true);
@@ -144,14 +144,6 @@ public class LoginGUI extends JFrame implements ActionListener{
         }else{
             JOptionPane.showMessageDialog(null,"No has podido iniciar sesion");
         }
-    }
-
-    public JTextField getTextFieldUsername() {
-        return textFieldUsername;
-    }
-
-    public JPasswordField getPasswordField() {
-        return passwordField;
     }
 
     /**
