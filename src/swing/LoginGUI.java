@@ -136,7 +136,28 @@ public class LoginGUI extends JFrame implements ActionListener{
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
-        if(us.loguearse(textFieldUsername,passwordField)){
+
+        /*
+         *
+         *   Antes se hacia uso del metodo getText en el JPasswordField debido a que supuestamente aveces da errores
+         *  Por ese motivo ahora es un metodo descontinuado que no deberia usarse (aunque funciona xD)
+         *  Solo lo pongo como ejemplo:
+         *
+         *  String contrasenia =passwordField.getText()};
+         *
+         *   La manera correcta de obtener los valores de un JPasswordField es la siguiente:
+         * */
+        char []caracteresContrasenia=passwordField.getPassword();//el metodo getPassword es el nuevo metodo que sustituye a getText en los JPaswordField y retorna un arreglo de caracteres por eso creo uno primero  y  despues hago la asignacion
+        String contrasenia="";//declaro una variable llamada contrasenia para guardar en ella el arreglo de caracteres
+        for (int i=0;i<caracteresContrasenia.length;i++) //Hago un for para recorrer el arreglo
+        {
+            contrasenia+=caracteresContrasenia[i];//uno todas las letras de cada posicion del arreglo para solo obtener una variable string con la contraseña
+        }
+        /*
+         * Ahora podemos usar esa variable contrasenia para enviarla como parametro en el metodo
+         * */
+
+        if(us.loguearse(textFieldUsername.getText(),contrasenia)){
             JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
             AdministradorGUI adminGUI = new AdministradorGUI();
             adminGUI.setVisible(true);

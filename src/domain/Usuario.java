@@ -9,9 +9,6 @@ public class Usuario{
 
     private String usuario,password;
 
-    /**
-     *
-     */
     public Usuario(){
         usuario = "Admin";
         password = "admin";
@@ -26,32 +23,14 @@ public class Usuario{
     }
 
     /**
-     *
-     * @param user
-     * @param pass
-     */
-    public void datosLogin(String user,String pass){
-        this.usuario="Admin";
-        this.password="admin";
-    }
-
-    /**
      * Este metodo permite hacer la validacion del login
-     * Recibe como argumentos la caja de texto del usuario en el Jframe y tambien de la password
-     * JTextField y JPasswordField
-     * @param usTextField
-     * @param passField
-     * @return
+     * Recibe como argumentos las cadenas de texto del usuario y contraseña
      */
-    public boolean loguearse(JTextField usTextField,JPasswordField passField){
-        LoginGUI loginGui = new LoginGUI();
-        datosLogin(usuario,password);
+    public boolean loguearse(String user,String pass){
 
-        if((usuario.equals(usTextField)) && (password.equals(passField))){
-            JOptionPane.showMessageDialog(null,"funciono");
+        if((usuario.equals(user)) && (password.equals(pass))){
             return true;
         }else {
-            JOptionPane.showMessageDialog(null,"No funciono");
             return false;
         }
     }
