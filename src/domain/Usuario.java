@@ -9,6 +9,9 @@ public class Usuario{
 
     private String usuario,password;
 
+    /**
+     *
+     */
     public Usuario(){
         usuario = "Admin";
         password = "admin";
@@ -24,6 +27,8 @@ public class Usuario{
 
     /**
      *
+     * @param user
+     * @param pass
      */
     public void datosLogin(String user,String pass){
         this.usuario="Admin";
