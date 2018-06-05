@@ -9,7 +9,7 @@ public class AdministradorGUI extends JFrame implements ActionListener{
 
     private JPanel jPanel;
     private JButton btnSalir;
-
+    private JLabel jlabelFondo;
 
     /**
      * Constructor que llama al constructor por defecto de la clase padre JFrame
@@ -55,7 +55,14 @@ public class AdministradorGUI extends JFrame implements ActionListener{
             }
         });
 
+        jlabelFondo = new javax.swing.JLabel();
+        jlabelFondo.setForeground(new java.awt.Color(255, 255, 255));
+        jlabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/blueE.jpg"))); // NOI18N
+        jlabelFondo.setMaximumSize(new java.awt.Dimension(800, 600));
+        jlabelFondo.setMinimumSize(new java.awt.Dimension(800, 600));
+
         this.add(jPanel);
+        jPanel.add(jlabelFondo);
         jPanel.add(btnSalir);
     }
 
