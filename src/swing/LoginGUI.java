@@ -1,5 +1,7 @@
 package swing;
 
+import domain.Usuario;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,13 +10,13 @@ import javax.swing.*;
 public class LoginGUI extends JFrame implements ActionListener{
 
     private JPanel jPanel;
-    private JTextField textFieldUsername;
-    private JPasswordField passwordField;
+    public JTextField textFieldUsername;
+    public JPasswordField passwordField;
     private JButton btnSalir;
     private JButton btnLoguearse;
     private JLabel jlabelUsuario;
     private JLabel jlabelPassword;
-    public String usuario,password;
+    private String nombreUsuario,contrasena;
     Component confirmacion;
 
     /**
@@ -133,17 +135,12 @@ public class LoginGUI extends JFrame implements ActionListener{
      * @param
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
-        datosLogin(usuario,password);
-        AdministradorGUI adminGUI = new AdministradorGUI();
-        adminGUI.setVisible(true);
-    }
-
-    /**
-     *
-     */
-    public void datosLogin(String user,String pass){
-        this.usuario="Admin";
-        this.password="admin";
+        Usuario us = new Usuario();
+        if(us.loguearse()){
+            AdministradorGUI adminGUI = new AdministradorGUI();
+            adminGUI.setVisible(true);
+            this.dispose(); //cierro la ventana actual
+        }
     }
 
     /**
