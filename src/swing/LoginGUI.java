@@ -1,6 +1,10 @@
 package swing;
 
 import domain.Usuario;
+import exepciones.CampoVacioException;
+import exepciones.InicioSesionException;
+import exepciones.InvalidUsernameAndPasswordException;
+import exepciones.InvalidUsernameException;
 import jdk.nashorn.internal.scripts.JO;
 
 import java.awt.*;
@@ -166,15 +170,23 @@ public class LoginGUI extends JFrame implements ActionListener{
          * Ahora podemos usar esa variable contrasenia para enviarla como parametro en el metodo
          * */
 
-        if(us.loguearse(textFieldUsername.getText(),contrasenia)){
-            JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
-            AdministradorGUI adminGUI = new AdministradorGUI();
-            adminGUI.setVisible(true);
-            //this.dispose(); //cierro la ventana actual
-        }else{
-            JOptionPane.showMessageDialog(null,"No has podido iniciar sesion");
+            try {
+                us.loguearse(textFieldUsername.getText(),contrasenia);
+                JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
+                AdministradorGUI adminGUI = new AdministradorGUI();
+                adminGUI.setVisible(true);
+                //this.dispose(); //cierro la ventana actual
+            } catch (CampoVacioException e) {
+                JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
+            } catch (InvalidUsernameException e) {
+                JOptionPane.showMessageDialog(null,"Usuario incorrecto");
+            } catch (InvalidUsernameAndPasswordException e) {
+                JOptionPane.showMessageDialog(null,"Usuario o contrasenia incorrectos");
+            }catch (InicioSesionException ex){
+                JOptionPane.showMessageDialog(null,"No has podido iniciar sesion"+ex.informa());
+            }
+
         }
-    }
 
     /**
      * Main method, utiliza la interfaz Runnable para que podamos ejecutar
