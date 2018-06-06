@@ -4,6 +4,10 @@ import exepciones.CampoVacioException;
 import exepciones.InicioSesionException;
 import exepciones.InvalidUsernameAndPasswordException;
 import exepciones.InvalidUsernameException;
+import files.JsonUtiles;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Usuario {
 
@@ -53,6 +57,27 @@ public class Usuario {
         }
     }
     */
+    public void registrarUsuario() throws JSONException {
+        JsonUtiles jsonUt = new JsonUtiles();
+        JSONObject objetoJSON = new JSONObject();
+        JSONArray arregloJSON = new JSONArray();
+        String tipoAdmin = "registroAdmin";
+        String tipoEstandar = "registroEstandar";
+
+        for(int i = 0; i < 5; i++){
+            arregloJSON.put(objetoJSON);
+        }
+
+        jsonUt.grabar(arregloJSON,tipoAdmin);
+    }
+
+    public void leerDatosUsuario() throws JSONException{
+        JsonUtiles jsonUt = new JsonUtiles();
+        String tipoAdmin = "registroAdmin";
+        String tipoEstandar = "registroEstandar";
+        jsonUt.leer(tipoAdmin);
+    }
+
     public boolean loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, InvalidUsernameException, CampoVacioException, InicioSesionException {
 
         if ((usuario.equals(user)) && (password.equals(pass))) {
