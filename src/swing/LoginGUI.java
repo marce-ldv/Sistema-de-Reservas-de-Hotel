@@ -19,8 +19,10 @@ public class LoginGUI extends JFrame implements ActionListener{
     private JPasswordField passwordField;
     private JButton btnSalir;
     private JButton btnLoguearse;
+    private JButton btnRegistrarse;
     private JLabel jlabelUsuario;
     private JLabel jlabelPassword;
+    private JLabel jlabelRegistrarse;
     private String nombreUsuario,contrasena;
     Component confirmacion;
 
@@ -41,7 +43,7 @@ public class LoginGUI extends JFrame implements ActionListener{
      */
     private void configurarVentana() {
         this.setTitle("Login");                   // colocamos titulo a la ventana
-        this.setSize(800, 600);                                 // colocamos tamanio a la ventana (ancho, alto)
+        this.setSize(350, 550);                                 // colocamos tamanio a la ventana (ancho, alto)
         this.setLocationRelativeTo(null);                       // centramos la ventana en la pantalla
         this.setLayout(null);                                   // no usamos ningun layout, solo asi podremos dar posiciones a los componentes
         this.setResizable(false);                               // hacemos que la ventana no sea redimiensionable
@@ -57,18 +59,17 @@ public class LoginGUI extends JFrame implements ActionListener{
         // creamos los componentes
         setIconImage(getIconImage());
         jPanel = new JPanel();
-        jPanel.setBounds(0,0,800,600);
+        jPanel.setBounds(0,0,350,550);
         jPanel.setLayout(null);
 
         textFieldUsername = new javax.swing.JTextField();
-        textFieldUsername.setBounds(300,330,170,30);
-        //textFieldUsername.setText("Ingrese su usuario: ");
+        textFieldUsername.setBounds(90,265,170,30);
 
         passwordField = new javax.swing.JPasswordField();
-        passwordField.setBounds(300,390,170,30);
+        passwordField.setBounds(90,320,170,30);
 
         btnSalir = new javax.swing.JButton();
-        btnSalir.setBounds(20,20,70,25);
+        btnSalir.setBounds(10,20,70,25);
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
@@ -77,7 +78,7 @@ public class LoginGUI extends JFrame implements ActionListener{
         });
 
         btnLoguearse = new javax.swing.JButton();
-        btnLoguearse.setBounds(300,450,170,40);
+        btnLoguearse.setBounds(90,380,170,40);
         btnLoguearse.setText("Iniciar Sesion");
         btnLoguearse.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
@@ -85,13 +86,28 @@ public class LoginGUI extends JFrame implements ActionListener{
             }
         });
 
-        jlabelUsuario = new javax.swing.JLabel("Usuario: ");
-        jlabelUsuario.setBounds(300,300,170,30);
+        btnRegistrarse = new javax.swing.JButton();
+        btnRegistrarse.setBounds(90,450,170,40);
+        btnRegistrarse.setText("Registrarse");
 
-        jlabelPassword = new javax.swing.JLabel("Contrasena: ");
-        jlabelPassword.setBounds(300,360,170,30);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
 
 
+        jlabelUsuario = new javax.swing.JLabel("Ingrese su Usuario: ");
+        jlabelUsuario.setBounds(90,240,170,30);
+
+        jlabelPassword = new javax.swing.JLabel("Ingrese su Contrasena: ");
+        jlabelPassword.setBounds(90,295,170,30);
+
+        jlabelRegistrarse =new javax.swing.JLabel("No tienes una cuenta? Click aqui");
+        jlabelRegistrarse.setBounds(90,425,170,30);
+
+        jPanel.add(jlabelRegistrarse);
+        jPanel.add(btnRegistrarse);
         jPanel.add(textFieldUsername);
         jPanel.add(passwordField);
         jPanel.add(btnSalir);
@@ -187,6 +203,10 @@ public class LoginGUI extends JFrame implements ActionListener{
             }
 
         }
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt){
+        JOptionPane.showMessageDialog(null,"asd");
+    }
 
     /**
      * Main method, utiliza la interfaz Runnable para que podamos ejecutar
