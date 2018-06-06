@@ -6,6 +6,7 @@ import exepciones.InicioSesionException;
 import exepciones.InvalidUsernameAndPasswordException;
 import exepciones.InvalidUsernameException;
 import jdk.nashorn.internal.scripts.JO;
+import org.json.JSONException;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,8 @@ public class LoginGUI extends JFrame implements ActionListener{
     private JLabel jlabelPassword;
     private JLabel jlabelRegistrarse;
     private String nombreUsuario,contrasena;
+    private JComboBox jcomboLogin;
+    private JLabel jlabelComboLogin;
     Component confirmacion;
 
     /**
@@ -106,6 +109,17 @@ public class LoginGUI extends JFrame implements ActionListener{
         jlabelRegistrarse =new javax.swing.JLabel("No tienes una cuenta? Click aqui");
         jlabelRegistrarse.setBounds(90,425,170,30);
 
+        jcomboLogin = new JComboBox();
+        jcomboLogin.setBounds(90,130,170,30);
+        jcomboLogin.addItem("Administrador");
+        jcomboLogin.addItem("Empleado");
+        jcomboLogin.addItem("Conserje");
+
+        jlabelComboLogin = new javax.swing.JLabel("Loguearse como: ");
+        jlabelComboLogin.setBounds(90,100,170,30);
+
+        jPanel.add(jlabelComboLogin);
+        jPanel.add(jcomboLogin);
         jPanel.add(jlabelRegistrarse);
         jPanel.add(btnRegistrarse);
         jPanel.add(textFieldUsername);
@@ -160,38 +174,55 @@ public class LoginGUI extends JFrame implements ActionListener{
     }
 
     /**
-     * En este metodo se ejecutara al presionar el boton btnSalir
-     * @param
+     *  Antes se hacia uso del metodo getText en el JPasswordField debido a que supuestamente aveces da errores
+     *  Por ese motivo ahora es un metodo descontinuado que no deberia usarse (aunque funciona xD)
+     *  Ejemplo:
+     *
+     *  String contrasenia =passwordField.getText()};
+     *
+     *   La manera correcta de obtener los valores de un JPasswordField es la siguiente:
+     * @param evt
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
+        int tipoUsuario=0;
 
-        /*
-         *
-         *   Antes se hacia uso del metodo getText en el JPasswordField debido a que supuestamente aveces da errores
-         *  Por ese motivo ahora es un metodo descontinuado que no deberia usarse (aunque funciona xD)
-         *  Solo lo pongo como ejemplo:
-         *
-         *  String contrasenia =passwordField.getText()};
-         *
-         *   La manera correcta de obtener los valores de un JPasswordField es la siguiente:
-         * */
         char []caracteresContrasenia=passwordField.getPassword();//el metodo getPassword es el nuevo metodo que sustituye a getText en los JPaswordField y retorna un arreglo de caracteres por eso creo uno primero  y  despues hago la asignacion
         String contrasenia="";//declaro una variable llamada contrasenia para guardar en ella el arreglo de caracteres
         for (int i=0;i<caracteresContrasenia.length;i++) //Hago un for para recorrer el arreglo
         {
             contrasenia+=caracteresContrasenia[i];//uno todas las letras de cada posicion del arreglo para solo obtener una variable string con la contraseña
         }
-        /*
-         * Ahora podemos usar esa variable contrasenia para enviarla como parametro en el metodo
-         * */
+
+        //Me fijo que tipo de usuario fue seleccionado en el jcombobox para leer mi fichero json
+
+        int varSelected = jcomboLogin.getSelectedIndex();
+        if(varSelected == 0){
+            JOptionPane.showMessageDialog(null,"Administrador");
+            tipoUsuario=0;
+        }else if(varSelected == 1){
+            JOptionPane.showMessageDialog(null,"Empleado");
+            tipoUsuario=1;
+        }else if(varSelected == 2){
+            JOptionPane.showMessageDialog(null,"Conserje");
+            tipoUsuario=2;
+        }
+
+        //Cargo a mi usuario con datos para efectuar el login
+        try{
+            us.leerDatosUsuario(tipoUsuario);
+        } catch(JSONException e){
+            e.printStackTrace();
+        }
+
+        //Ahora podemos usar esa variable contrasenia para enviarla como parametro en el metodo
 
             try {
                 us.loguearse(textFieldUsername.getText(),contrasenia);
                 JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
                 AdministradorGUI adminGUI = new AdministradorGUI();
                 adminGUI.setVisible(true);
-                //this.dispose(); //cierro la ventana actual
+                this.dispose(); //cierro la ventana actual
             } catch (CampoVacioException e) {
                 JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
             } catch (InvalidUsernameException e) {
@@ -205,7 +236,9 @@ public class LoginGUI extends JFrame implements ActionListener{
         }
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt){
-        JOptionPane.showMessageDialog(null,"asd");
+        RegistrarPasajeroGUI registroGUI = new RegistrarPasajeroGUI();
+        registroGUI.setVisible(true);
+        this.dispose();
     }
 
     /**

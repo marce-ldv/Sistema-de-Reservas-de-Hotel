@@ -71,11 +71,13 @@ public class Usuario {
         jsonUt.grabar(arregloJSON,tipoAdmin);
     }
 
-    public void leerDatosUsuario() throws JSONException{
+    public void leerDatosUsuario(int tipoUsuario) throws JSONException{
         JsonUtiles jsonUt = new JsonUtiles();
-        String tipoAdmin = "registroAdmin";
-        String tipoEstandar = "registroEstandar";
-        jsonUt.leer(tipoAdmin);
+        if(tipoUsuario == 0){
+            jsonUt.leer("registroAdmin.json");
+        }else{
+            jsonUt.leer("registroUsuarioEstandar");
+        }
     }
 
     public boolean loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, InvalidUsernameException, CampoVacioException, InicioSesionException {
