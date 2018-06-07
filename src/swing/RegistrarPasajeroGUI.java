@@ -204,6 +204,7 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
+        String tipoUsuario="";
 
         char []caracteresContrasenia=jpasswordFieldContrasenia.getPassword();//el metodo getPassword es el nuevo metodo que sustituye a getText en los JPaswordField y retorna un arreglo de caracteres por eso creo uno primero  y  despues hago la asignacion
         String contrasenia="";//declaro una variable llamada contrasenia para guardar en ella el arreglo de caracteres
@@ -215,7 +216,12 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         try{
             JSONObject objDatos= us.registrarUsuario(textFieldNombre.getText(),textFieldApellido.getText(),textFieldNombreUsuario.getText(),
                     contrasenia, textFieldDni.getText(),jlabelTelefono.getText(),textFieldNacionalidad.getText(),jcomboTipoUsuario.getSelectedIndex());
-            us.grabarRegistrosEnJson(objDatos);
+            if(jcomboTipoUsuario.getSelectedIndex() == 0){
+                tipoUsuario="registroAdmin.json";
+            }else if(jcomboTipoUsuario.getSelectedIndex() == 1 || jcomboTipoUsuario.getSelectedIndex() == 2){
+                tipoUsuario="registroUsuarioEstandar.json";
+            }
+            us.grabarRegistrosEnJson(objDatos,tipoUsuario);
             JOptionPane.showMessageDialog(null,"Ha sido registrado con exito !!");
         } catch(JSONException e){
             JOptionPane.showMessageDialog(null,"No se pudo completar el registro, por favor,intentelo nuevamente");

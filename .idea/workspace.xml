@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2064f36c-95f5-4f1c-9df4-18ff0dd8a3ed" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/registroAdmin.json" beforeDir="false" afterPath="$PROJECT_DIR$/registroAdmin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -29,8 +31,8 @@
       <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/domain/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+            <state relative-caret-position="255">
+              <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -39,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/swing/LoginGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="103">
-              <caret line="113" column="45" lean-forward="true" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
+              <caret line="212" column="25" selection-start-line="212" selection-start-column="25" selection-end-line="212" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -59,8 +61,8 @@
       <file leaf-file-name="RegistrarPasajeroGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="220" column="82" selection-start-line="220" selection-start-column="82" selection-end-line="220" selection-end-column="82" />
+            <state relative-caret-position="241">
+              <caret line="221" column="57" selection-start-line="221" selection-start-column="57" selection-end-line="221" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2752#2753#0" expanded="true" />
@@ -116,8 +118,8 @@
         <option value="$PROJECT_DIR$/src/swing/LoginGUI.java" />
         <option value="$PROJECT_DIR$/src/app/Main.java" />
         <option value="$PROJECT_DIR$/src/files/JsonUtiles.java" />
-        <option value="$PROJECT_DIR$/src/domain/Usuario.java" />
         <option value="$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java" />
+        <option value="$PROJECT_DIR$/src/domain/Usuario.java" />
       </list>
     </option>
   </component>
@@ -689,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/swing/LoginGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="113" column="45" lean-forward="true" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/files/JsonUtiles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -708,8 +703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="220" column="82" selection-start-line="220" selection-start-column="82" selection-end-line="220" selection-end-column="82" />
+        <state relative-caret-position="241">
+          <caret line="221" column="57" selection-start-line="221" selection-start-column="57" selection-end-line="221" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2752#2753#0" expanded="true" />
@@ -719,6 +714,13 @@
             <element signature="e#5975#5976#0" expanded="true" />
             <element signature="e#6038#6039#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swing/LoginGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="212" column="25" selection-start-line="212" selection-start-column="25" selection-end-line="212" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -734,8 +736,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+        <state relative-caret-position="255">
+          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
         </state>
       </provider>
     </entry>

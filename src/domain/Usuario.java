@@ -68,13 +68,14 @@ public class Usuario {
         return pasajeroDatos;
     }
 
-    public void grabarRegistrosEnJson(JSONObject jsonObj) throws JSONException {
+    public void grabarRegistrosEnJson(JSONObject jsonObj,String tipoUsuario) throws JSONException {
 
         JsonUtiles jsonUt = new JsonUtiles();
         JSONArray arregloJSON = new JSONArray();
 
         arregloJSON.put(jsonObj);
-        jsonUt.grabar(arregloJSON,"registroAdmin.json");
+        
+        jsonUt.grabar(arregloJSON,tipoUsuario);
     }
 
     public void leerDatosUsuario(int tipoUsuario) throws JSONException{
