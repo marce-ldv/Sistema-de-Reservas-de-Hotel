@@ -218,6 +218,7 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
             us.grabarRegistrosEnJson(objDatos);
             JOptionPane.showMessageDialog(null,"Ha sido registrado con exito !!");
         } catch(JSONException e){
+            JOptionPane.showMessageDialog(null,"No se pudo completar el registro, por favor,intentelo nuevamente");
             e.printStackTrace();
         }
     }
