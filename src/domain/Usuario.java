@@ -72,9 +72,9 @@ public class Usuario {
 
         JsonUtiles jsonUt = new JsonUtiles();
         JSONArray arregloJSON = new JSONArray();
-
-        arregloJSON.put(jsonObj);
         
+        arregloJSON.put(jsonObj);
+
         jsonUt.grabar(arregloJSON,tipoUsuario);
     }
 
