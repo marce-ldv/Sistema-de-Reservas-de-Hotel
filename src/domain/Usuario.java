@@ -71,20 +71,16 @@ public class Usuario {
     public void grabarRegistrosEnJson(JSONObject jsonObj,String tipoUsuario) throws JSONException {
 
         JsonUtiles jsonUt = new JsonUtiles();
-        JSONArray arregloJSON = new JSONArray();
+        JSONArray arregloJSON = new JSONArray(leerDatosUsuario(tipoUsuario));
         
         arregloJSON.put(jsonObj);
-
         jsonUt.grabar(arregloJSON,tipoUsuario);
+
     }
 
-    public void leerDatosUsuario(int tipoUsuario) throws JSONException{
+    public String leerDatosUsuario(String tipoUsuario) throws JSONException{
         JsonUtiles jsonUt = new JsonUtiles();
-        if(tipoUsuario == 0){
-            jsonUt.leer("registroAdmin.json");
-        }else{
-            jsonUt.leer("registroUsuarioEstandar");
-        }
+        return jsonUt.leer(tipoUsuario);
     }
 
     public boolean loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, InvalidUsernameException, CampoVacioException, InicioSesionException {
@@ -98,5 +94,13 @@ public class Usuario {
                 throw new InvalidUsernameAndPasswordException(user);
             }
         }
+    }
+
+    private void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    private void setPassword(String password) {
+        this.password = password;
     }
 }

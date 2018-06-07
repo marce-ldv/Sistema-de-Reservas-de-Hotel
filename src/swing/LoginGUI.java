@@ -1,10 +1,12 @@
 package swing;
 
+import app.JavaUtiles;
 import domain.Usuario;
 import exepciones.CampoVacioException;
 import exepciones.InicioSesionException;
 import exepciones.InvalidUsernameAndPasswordException;
 import exepciones.InvalidUsernameException;
+import files.JsonUtiles;
 import jdk.nashorn.internal.scripts.JO;
 import org.json.JSONException;
 
@@ -106,8 +108,8 @@ public class LoginGUI extends JFrame implements ActionListener{
         jlabelPassword = new javax.swing.JLabel("Ingrese su Contrasena: ");
         jlabelPassword.setBounds(90,295,170,30);
 
-        jlabelRegistrarse =new javax.swing.JLabel("No tienes una cuenta? Click aqui");
-        jlabelRegistrarse.setBounds(90,425,170,30);
+        jlabelRegistrarse =new javax.swing.JLabel("No tienes cuenta? Click aqui");
+        jlabelRegistrarse.setBounds(90,425,200,30);
 
         jcomboLogin = new JComboBox();
         jcomboLogin.setBounds(90,130,170,30);
@@ -185,7 +187,8 @@ public class LoginGUI extends JFrame implements ActionListener{
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
-        int tipoUsuario=0;
+        JavaUtiles javaUtiles = new JavaUtiles();
+        String tipoUsuario="";
 
         char []caracteresContrasenia=passwordField.getPassword();//el metodo getPassword es el nuevo metodo que sustituye a getText en los JPaswordField y retorna un arreglo de caracteres por eso creo uno primero  y  despues hago la asignacion
         String contrasenia="";//declaro una variable llamada contrasenia para guardar en ella el arreglo de caracteres
@@ -199,13 +202,13 @@ public class LoginGUI extends JFrame implements ActionListener{
         int varSelected = jcomboLogin.getSelectedIndex();
         if(varSelected == 0){
             JOptionPane.showMessageDialog(null,"Administrador");
-            tipoUsuario=0;
+            tipoUsuario= javaUtiles.directorioAdmin;
         }else if(varSelected == 1){
             JOptionPane.showMessageDialog(null,"Empleado");
-            tipoUsuario=1;
+            tipoUsuario= javaUtiles.getDirectorioUsuarioEstandar();
         }else if(varSelected == 2){
             JOptionPane.showMessageDialog(null,"Conserje");
-            tipoUsuario=2;
+            tipoUsuario= javaUtiles.getDirectorioUsuarioEstandar();
         }
 
         //Cargo a mi usuario con datos para efectuar el login

@@ -24,20 +24,18 @@ public class JsonUtiles{
         }
     }
 
-    public void leer(String nombreDirectorio)
+    public String leer(String nombreDirectorio)
     {
         try
         {
             String contenido = new String(Files.readAllBytes(Paths.get(nombreDirectorio)));
-            JSONArray array = new JSONArray(contenido);
             System.out.println(contenido);
+            return contenido;
         }
         catch (IOException e)
         {
             e.printStackTrace();
-        } catch (JSONException e) {
-            System.out.println("Anomalia al leer el directorio ");
-            e.printStackTrace();
+            return "";
         }
 
     }
