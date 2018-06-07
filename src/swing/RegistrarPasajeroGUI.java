@@ -9,7 +9,22 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
 
     private JPanel jPanel;
     private JButton btnSalir;
-    private JLabel jlabelFondo;
+    private JLabel jlabelNombre;
+    private JLabel jlabelAapellido;
+    private JLabel jlabelNombreUsuario;
+    private JLabel jlabelContrasena;
+    private JLabel jlabelDni;
+    private JLabel jlabelTelefono;
+    private JLabel jlabelNacionalidad;
+    private JTextField textFieldApellido;
+    private JTextField textFieldNombreUsuario;
+    private JPasswordField jpasswordFieldContrasenia;
+    private JTextField textFieldDni;
+    private JTextField textFieldTelefono;
+    private JTextField textFieldNacionalidad;
+    private JCheckBox jcheckBox;
+    private JButton btnRegistrarse;
+
 
     /**
      * Constructor que llama al constructor por defecto de la clase padre JFrame
@@ -55,15 +70,54 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
             }
         });
 
-        jlabelFondo = new javax.swing.JLabel();
-        jlabelFondo.setForeground(new java.awt.Color(255, 255, 255));
-        jlabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/blueE.jpg"))); // NOI18N
-        jlabelFondo.setMaximumSize(new java.awt.Dimension(800, 600));
-        jlabelFondo.setMinimumSize(new java.awt.Dimension(800, 600));
+        btnRegistrarse = new javax.swing.JButton();
+        btnRegistrarse.setBounds(50,400,70,25);
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
+
+        jlabelNombre = new javax.swing.JLabel("Nombre");
+        jlabelNombre.setBounds(30,20,170,25);
+
+        jlabelAapellido = new javax.swing.JLabel("Apellido");
+        jlabelAapellido.setBounds(30,40,170,25);
+
+        jlabelNombreUsuario = new javax.swing.JLabel("Nombre de usuario");
+        jlabelNombreUsuario.setBounds(30,60,170,25);
+
+        jlabelContrasena = new javax.swing.JLabel("Contrasena");
+        jlabelContrasena.setBounds(30,80,170,25);
+
+        jlabelDni = new javax.swing.JLabel("Numero de dni");
+        jlabelDni.setBounds(30,100,170,25);
+
+        jlabelTelefono = new javax.swing.JLabel("Telefono");
+        jlabelTelefono.setBounds(30,120,170,25);
+
+        jlabelNacionalidad = new javax.swing.JLabel("Nacionalidad");
+        jlabelNacionalidad.setBounds(30,140,170,25);
+
+        jcheckBox = new javax.swing.JCheckBox();
+        jcheckBox.setBounds(30,340,170,25);
+        jcheckBox.setText("Acepto todos los terminos ");
+
 
         this.add(jPanel);
-        jPanel.add(jlabelFondo);
         jPanel.add(btnSalir);
+        jPanel.add(btnRegistrarse);
+        jPanel.add(jlabelNombre);
+        jPanel.add(jlabelAapellido);
+        jPanel.add(jlabelNombreUsuario);
+        jPanel.add(jlabelContrasena);
+        jPanel.add(jlabelDni);
+        jPanel.add(jlabelTelefono);
+        jPanel.add(jlabelNacionalidad);
+        jPanel.add(jcheckBox);
+
+
     }
 
     /**
@@ -97,6 +151,13 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
      */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt){
         JOptionPane.showMessageDialog(null,"Has salido");
+        dispose();
+    }
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt){
+        JOptionPane.showMessageDialog(null,"Registrarse");
+        RegistrarPasajeroGUI regPasajeroGUI = new RegistrarPasajeroGUI();
+        regPasajeroGUI.setVisible(true);
         dispose();
     }
 
