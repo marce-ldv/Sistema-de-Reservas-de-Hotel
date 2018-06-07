@@ -1,5 +1,9 @@
 package swing;
 
+import domain.Usuario;
+import files.JsonUtiles;
+import org.json.JSONException;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -185,10 +189,22 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
     }
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt){
-        JOptionPane.showMessageDialog(null,"Registrarse");
-        RegistrarPasajeroGUI regPasajeroGUI = new RegistrarPasajeroGUI();
-        regPasajeroGUI.setVisible(true);
-        dispose();
+        Usuario us = new Usuario();
+
+        char []caracteresContrasenia=jpasswordFieldContrasenia.getPassword();//el metodo getPassword es el nuevo metodo que sustituye a getText en los JPaswordField y retorna un arreglo de caracteres por eso creo uno primero  y  despues hago la asignacion
+        String contrasenia="";//declaro una variable llamada contrasenia para guardar en ella el arreglo de caracteres
+        for (int i=0;i<caracteresContrasenia.length;i++) //Hago un for para recorrer el arreglo
+        {
+            contrasenia+=caracteresContrasenia[i];//uno todas las letras de cada posicion del arreglo para solo obtener una variable string con la contraseña
+        }
+
+        try{
+            us.registrarUsuario(textFieldNombre.getText(),textFieldApellido.getText(),textFieldNombreUsuario.getText(),
+                    contrasenia, textFieldDni.getText(),jlabelTelefono.getText(),textFieldNacionalidad.getText());
+            JOptionPane.showMessageDialog(null,"Ha sido registrado con exito !!");
+        } catch(JSONException e){
+            e.printStackTrace();
+        }
     }
 
 

@@ -32,43 +32,48 @@ public class Usuario {
     }
 
     /**
-     * Este metodo permite hacer la validacion del login
-     * Recibe como argumentos las cadenas de texto del usuario y contraseña
+     * Recibe los datos de un usario que se registro en el JFrame RegistrarPAsajeroGUI, esa informacion la conviene en un
+     * objeto JSON y la retorna
+     * @param nombre
+     * @param apellido
+     * @param username
+     * @param password
+     * @param dni
+     * @param telefono
+     * @param nacionalidad
+     * @return
+     * @throws JSONException
      */
-    /*
-    public boolean loguearse(String user,String pass){
+    public JSONObject registrarUsuario(String nombre,String apellido, String username, String password,
+                                       String dni,String telefono,String nacionalidad) throws JSONException {
+        JsonUtiles jsonUt = new JsonUtiles();
+        JSONArray arregloJSON = new JSONArray();
 
-        if((usuario.equals(user)) && (password.equals(pass))){
-            return true;
-        }else if((usuario.equals("")) && (password.equals(""))){
-            JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
-            return false;
-        }else if((usuario.equals(""))){
-            JOptionPane.showMessageDialog(null,"El campo usuario esta vacio");
-            return false;
-        }else if((password.equals(""))){
-            JOptionPane.showMessageDialog(null,"El campo password esta vacio");
-            return false;
-        }else if((usuario.compareTo(user) != 0) && (password.compareTo(pass) != 0)){
-            JOptionPane.showMessageDialog(null,"Usuario o contrasenia incorrectos");
-            return false;
-        }else{
-            return false;
-        }
+        JSONObject pasajeroDatos = new JSONObject();
+        pasajeroDatos.put("nombre", nombre);
+        pasajeroDatos.put("apellido", apellido);
+        pasajeroDatos.put("username", username);
+        pasajeroDatos.put("password", password);
+        pasajeroDatos.put("dni", dni);
+        pasajeroDatos.put("telefono", telefono);
+        pasajeroDatos.put("nacionalidad", nacionalidad);
+
+        return pasajeroDatos;
     }
-    */
-    public void registrarUsuario() throws JSONException {
+
+    public void registrarUsurhtttario() throws JSONException {
+
         JsonUtiles jsonUt = new JsonUtiles();
         JSONObject objetoJSON = new JSONObject();
         JSONArray arregloJSON = new JSONArray();
-        String tipoAdmin = "registroAdmin";
-        String tipoEstandar = "registroEstandar";
+
 
         for(int i = 0; i < 5; i++){
             arregloJSON.put(objetoJSON);
         }
 
-        jsonUt.grabar(arregloJSON,tipoAdmin);
+        //jsonUt(arregloJSON,tipoAdmin);
+
     }
 
     public void leerDatosUsuario(int tipoUsuario) throws JSONException{

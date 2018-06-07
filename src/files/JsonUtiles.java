@@ -10,18 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class JsonUtiles{
-    public JSONObject prueba() throws JSONException {
-        JSONArray array = new JSONArray();
-
-        JSONObject pasajeroDatos = new JSONObject();
-        pasajeroDatos.put("nombre", "gonzalo");
-        pasajeroDatos.put("edad", 29);
-        pasajeroDatos.put("username", "Admin");
-        pasajeroDatos.put("password", "123");
-
-
-        return pasajeroDatos;
-    }
+    public JsonUtiles(){}
 
     public void grabar(JSONArray array,String nombreDirectorio) {
         try {
