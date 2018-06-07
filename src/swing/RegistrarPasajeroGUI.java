@@ -16,6 +16,7 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
     private JLabel jlabelDni;
     private JLabel jlabelTelefono;
     private JLabel jlabelNacionalidad;
+    private JTextField textFieldNombre;
     private JTextField textFieldApellido;
     private JTextField textFieldNombreUsuario;
     private JPasswordField jpasswordFieldContrasenia;
@@ -62,7 +63,7 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         jPanel.setLayout(null);
 
         btnSalir = new javax.swing.JButton();
-        btnSalir.setBounds(20,20,70,25);
+        btnSalir.setBounds(700,20,80,25);
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
@@ -71,7 +72,7 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         });
 
         btnRegistrarse = new javax.swing.JButton();
-        btnRegistrarse.setBounds(50,400,70,25);
+        btnRegistrarse.setBounds(30,500,200,40);
         btnRegistrarse.setText("Registrarse");
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
@@ -80,34 +81,63 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         });
 
         jlabelNombre = new javax.swing.JLabel("Nombre");
-        jlabelNombre.setBounds(30,20,170,25);
+        jlabelNombre.setBounds(30,40,170,25);
 
         jlabelAapellido = new javax.swing.JLabel("Apellido");
-        jlabelAapellido.setBounds(30,40,170,25);
+        jlabelAapellido.setBounds(30,80,170,25);
 
         jlabelNombreUsuario = new javax.swing.JLabel("Nombre de usuario");
-        jlabelNombreUsuario.setBounds(30,60,170,25);
+        jlabelNombreUsuario.setBounds(30,120,170,25);
 
         jlabelContrasena = new javax.swing.JLabel("Contrasena");
-        jlabelContrasena.setBounds(30,80,170,25);
+        jlabelContrasena.setBounds(30,160,170,25);
 
         jlabelDni = new javax.swing.JLabel("Numero de dni");
-        jlabelDni.setBounds(30,100,170,25);
+        jlabelDni.setBounds(30,200,170,25);
 
         jlabelTelefono = new javax.swing.JLabel("Telefono");
-        jlabelTelefono.setBounds(30,120,170,25);
+        jlabelTelefono.setBounds(30,240,170,25);
 
         jlabelNacionalidad = new javax.swing.JLabel("Nacionalidad");
-        jlabelNacionalidad.setBounds(30,140,170,25);
+        jlabelNacionalidad.setBounds(30,280,170,25);
 
         jcheckBox = new javax.swing.JCheckBox();
-        jcheckBox.setBounds(30,340,170,25);
+        jcheckBox.setBounds(30,460,200,25);
         jcheckBox.setText("Acepto todos los terminos ");
 
+        textFieldNombre = new javax.swing.JTextField();
+        textFieldNombre.setBounds(160,40,170,30);
+
+        textFieldApellido = new javax.swing.JTextField();
+        textFieldApellido.setBounds(160,80,170,30);
+
+        textFieldNombreUsuario = new javax.swing.JTextField();
+        textFieldNombreUsuario.setBounds(160,120,170,30);
+
+        jpasswordFieldContrasenia = new javax.swing.JPasswordField();
+        jpasswordFieldContrasenia.setBounds(160,160,170,30);
+
+        textFieldDni = new javax.swing.JTextField();
+        textFieldDni.setBounds(160,200,170,30);
+
+        textFieldTelefono = new javax.swing.JTextField();
+        textFieldTelefono.setBounds(160,240,170,30);
+
+        textFieldNacionalidad = new javax.swing.JTextField();
+        textFieldNacionalidad.setBounds(160,280,170,30);
 
         this.add(jPanel);
+        jPanel.add(textFieldNombre);
+        jPanel.add(textFieldApellido);
+        jPanel.add(textFieldNombreUsuario);
+        jPanel.add(jpasswordFieldContrasenia);
+        jPanel.add(textFieldDni);
+        jPanel.add(textFieldTelefono);
+        jPanel.add(textFieldNacionalidad);
+
         jPanel.add(btnSalir);
         jPanel.add(btnRegistrarse);
+
         jPanel.add(jlabelNombre);
         jPanel.add(jlabelAapellido);
         jPanel.add(jlabelNombreUsuario);
