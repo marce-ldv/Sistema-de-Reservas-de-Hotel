@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2064f36c-95f5-4f1c-9df4-18ff0dd8a3ed" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/JavaUtiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/java_json.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/java_json.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registroAdmin.json" beforeDir="false" afterPath="$PROJECT_DIR$/registroAdmin.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registroUsuarioEstandar.json" beforeDir="false" afterPath="$PROJECT_DIR$/registroUsuarioEstandar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/files/JsonUtiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/JsonUtiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swing/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/LoginGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -36,8 +31,8 @@
       <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/domain/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="363">
+              <caret line="82" column="4" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#518#519#0" expanded="true" />
@@ -46,10 +41,22 @@
                 <element signature="e#614#615#0" expanded="true" />
                 <element signature="e#651#652#0" expanded="true" />
                 <element signature="e#683#684#0" expanded="true" />
-                <element signature="e#3063#3064#0" expanded="true" />
-                <element signature="e#3101#3102#0" expanded="true" />
-                <element signature="e#3150#3151#0" expanded="true" />
-                <element signature="e#3190#3191#0" expanded="true" />
+                <element signature="e#3521#3522#0" expanded="true" />
+                <element signature="e#3559#3560#0" expanded="true" />
+                <element signature="e#3608#3609#0" expanded="true" />
+                <element signature="e#3648#3649#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hotel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/Hotel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="772">
+              <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +65,11 @@
       <file leaf-file-name="RegistrarPasajeroGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="223" column="25" lean-forward="true" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+            <state relative-caret-position="-4294">
+              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,10 +113,12 @@
       <file leaf-file-name="LoginGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/swing/LoginGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="210" column="66" selection-start-line="210" selection-start-column="66" selection-end-line="210" selection-end-column="66" />
+            <state relative-caret-position="407">
+              <caret line="224" column="73" selection-start-line="224" selection-start-column="73" selection-end-line="224" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#10879#10880#0" expanded="true" />
+                <element signature="e#10942#10943#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,6 +155,7 @@
         <option value="$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java" />
         <option value="$PROJECT_DIR$/src/files/JsonUtiles.java" />
         <option value="$PROJECT_DIR$/src/app/JavaUtiles.java" />
+        <option value="$PROJECT_DIR$/src/domain/Hotel.java" />
         <option value="$PROJECT_DIR$/src/swing/LoginGUI.java" />
         <option value="$PROJECT_DIR$/src/domain/Usuario.java" />
       </list>
@@ -344,12 +357,12 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.11237785" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.11237785" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.1928934" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3282572" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26427525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26427525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -427,13 +440,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/domain/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -709,26 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/swing/LoginGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="210" column="66" selection-start-line="210" selection-start-column="66" selection-end-line="210" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swing/AdministradorGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="77" column="82" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/JavaUtiles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -751,15 +737,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="223" column="25" lean-forward="true" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+        <state relative-caret-position="-4294">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swing/AdministradorGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="77" column="82" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swing/LoginGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="224" column="73" selection-start-line="224" selection-start-column="73" selection-end-line="224" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10879#10880#0" expanded="true" />
+            <element signature="e#10942#10943#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Hotel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="363">
+          <caret line="82" column="4" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#518#519#0" expanded="true" />
@@ -768,10 +789,10 @@
             <element signature="e#614#615#0" expanded="true" />
             <element signature="e#651#652#0" expanded="true" />
             <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#3063#3064#0" expanded="true" />
-            <element signature="e#3101#3102#0" expanded="true" />
-            <element signature="e#3150#3151#0" expanded="true" />
-            <element signature="e#3190#3191#0" expanded="true" />
+            <element signature="e#3521#3522#0" expanded="true" />
+            <element signature="e#3559#3560#0" expanded="true" />
+            <element signature="e#3608#3609#0" expanded="true" />
+            <element signature="e#3648#3649#0" expanded="true" />
           </folding>
         </state>
       </provider>

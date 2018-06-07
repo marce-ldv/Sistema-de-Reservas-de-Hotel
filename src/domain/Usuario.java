@@ -8,6 +8,8 @@ import files.JsonUtiles;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import swing.LoginGUI;
+import swing.RegistrarPasajeroGUI;
 
 public class Usuario {
 
@@ -71,6 +73,7 @@ public class Usuario {
     public void grabarRegistrosEnJson(JSONObject jsonObj,String tipoUsuario) throws JSONException {
 
         JsonUtiles jsonUt = new JsonUtiles();
+        LoginGUI loguinGui=new LoginGUI();
         JSONArray arregloJSON = new JSONArray(leerDatosUsuario(tipoUsuario));
         
         arregloJSON.put(jsonObj);
@@ -78,29 +81,11 @@ public class Usuario {
 
     }
 
-    public String leerDatosUsuario(String tipoUsuario) throws JSONException{
-        JsonUtiles jsonUt = new JsonUtiles();
-        return jsonUt.leer(tipoUsuario);
-    }
-
-    public boolean loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, InvalidUsernameException, CampoVacioException, InicioSesionException {
-
-        if ((usuario.equals(user)) && (password.equals(pass))) {
-            return true;
-        } else {
-            if ((usuario.equals("")) || (password.equals(""))) {
-                throw new CampoVacioException("");
-            } else {
-                throw new InvalidUsernameAndPasswordException(user);
-            }
-        }
-    }
-
-    private void setUsuario(String usuario) {
+        public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

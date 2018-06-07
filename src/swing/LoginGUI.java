@@ -1,6 +1,7 @@
 package swing;
 
 import app.JavaUtiles;
+import domain.Hotel;
 import domain.Usuario;
 import exepciones.CampoVacioException;
 import exepciones.InicioSesionException;
@@ -187,6 +188,7 @@ public class LoginGUI extends JFrame implements ActionListener{
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
+        Hotel hotel = new Hotel();
         JavaUtiles javaUtiles = new JavaUtiles();
         String tipoUsuario="";
 
@@ -198,42 +200,29 @@ public class LoginGUI extends JFrame implements ActionListener{
         }
 
         //Me fijo que tipo de usuario fue seleccionado en el jcombobox para leer mi fichero json
-
-        int varSelected = jcomboLogin.getSelectedIndex();
-        if(varSelected == 0){
-            JOptionPane.showMessageDialog(null,"Administrador");
-            tipoUsuario= javaUtiles.directorioAdmin;
-        }else if(varSelected == 1){
-            JOptionPane.showMessageDialog(null,"Empleado");
-            tipoUsuario= javaUtiles.getDirectorioUsuarioEstandar();
-        }else if(varSelected == 2){
-            JOptionPane.showMessageDialog(null,"Conserje");
-            tipoUsuario= javaUtiles.getDirectorioUsuarioEstandar();
-        }
-
-        //Cargo a mi usuario con datos para efectuar el login
-        try{
-            us.leerDatosUsuario(tipoUsuario);
-        } catch(JSONException e){
-            e.printStackTrace();
-        }
+        tipoUsuario = getTipoDeUsuario();
 
         //Ahora podemos usar esa variable contrasenia para enviarla como parametro en el metodo
 
             try {
-                us.loguearse(textFieldUsername.getText(),contrasenia);
+
+                hotel.loguearse(textFieldUsername.getText(),contrasenia);
                 JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
                 AdministradorGUI adminGUI = new AdministradorGUI();
                 adminGUI.setVisible(true);
                 this.dispose(); //cierro la ventana actual
             } catch (CampoVacioException e) {
                 JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
+                hotel.loguearse(textFieldUsername.getText(),contrasenia);
             } catch (InvalidUsernameException e) {
                 JOptionPane.showMessageDialog(null,"Usuario incorrecto");
+                hotel.loguearse(textFieldUsername.getText(),contrasenia);
             } catch (InvalidUsernameAndPasswordException e) {
                 JOptionPane.showMessageDialog(null,"Usuario o contrasenia incorrectos");
+                hotel.loguearse(textFieldUsername.getText(),contrasenia);
             }catch (InicioSesionException ex){
                 JOptionPane.showMessageDialog(null,"No has podido iniciar sesion"+ex.informa());
+                hotel.loguearse(textFieldUsername.getText(),contrasenia);
             }
 
         }
@@ -242,6 +231,22 @@ public class LoginGUI extends JFrame implements ActionListener{
         RegistrarPasajeroGUI registroGUI = new RegistrarPasajeroGUI();
         registroGUI.setVisible(true);
         this.dispose();
+    }
+
+    public String getTipoDeUsuario(){
+        JavaUtiles utiles = new JavaUtiles();
+        int varSelected = jcomboLogin.getSelectedIndex();
+        if(varSelected == 0){
+            JOptionPane.showMessageDialog(null,"Administrador");
+            return utiles.getDirectorioAdmin();
+        }else if(varSelected == 1 || varSelected == 2){
+            JOptionPane.showMessageDialog(null,"Empleado");
+            return utiles.getDirectorioUsuarioEstandar();
+        }else if(varSelected == 2){
+            JOptionPane.showMessageDialog(null,"Conserje");
+            return utiles.getDirectorioUsuarioEstandar();
+        }
+        return "";
     }
 
     /**
