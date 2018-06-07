@@ -3,6 +3,7 @@ package swing;
 import domain.Usuario;
 import files.JsonUtiles;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,6 +21,7 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
     private JLabel jlabelDni;
     private JLabel jlabelTelefono;
     private JLabel jlabelNacionalidad;
+    private JLabel jlabelTipoUsuario;
     private JTextField textFieldNombre;
     private JTextField textFieldApellido;
     private JTextField textFieldNombreUsuario;
@@ -29,6 +31,7 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
     private JTextField textFieldNacionalidad;
     private JCheckBox jcheckBox;
     private JButton btnRegistrarse;
+    private JComboBox jcomboTipoUsuario;
 
 
     /**
@@ -85,25 +88,28 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         });
 
         jlabelNombre = new javax.swing.JLabel("Nombre");
-        jlabelNombre.setBounds(30,40,170,25);
+        jlabelNombre.setBounds(30,45,170,25);
 
         jlabelAapellido = new javax.swing.JLabel("Apellido");
-        jlabelAapellido.setBounds(30,80,170,25);
+        jlabelAapellido.setBounds(30,85,170,25);
 
         jlabelNombreUsuario = new javax.swing.JLabel("Nombre de usuario");
-        jlabelNombreUsuario.setBounds(30,120,170,25);
+        jlabelNombreUsuario.setBounds(30,125,170,25);
 
         jlabelContrasena = new javax.swing.JLabel("Contrasena");
-        jlabelContrasena.setBounds(30,160,170,25);
+        jlabelContrasena.setBounds(30,165,170,25);
 
         jlabelDni = new javax.swing.JLabel("Numero de dni");
-        jlabelDni.setBounds(30,200,170,25);
+        jlabelDni.setBounds(30,205,170,25);
 
         jlabelTelefono = new javax.swing.JLabel("Telefono");
-        jlabelTelefono.setBounds(30,240,170,25);
+        jlabelTelefono.setBounds(30,245,170,25);
 
         jlabelNacionalidad = new javax.swing.JLabel("Nacionalidad");
-        jlabelNacionalidad.setBounds(30,280,170,25);
+        jlabelNacionalidad.setBounds(30,285,170,25);
+
+        jlabelTipoUsuario = new javax.swing.JLabel("Tipo de Usuario");
+        jlabelTipoUsuario.setBounds(30,325,170,25);
 
         jcheckBox = new javax.swing.JCheckBox();
         jcheckBox.setBounds(30,460,200,25);
@@ -130,6 +136,12 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         textFieldNacionalidad = new javax.swing.JTextField();
         textFieldNacionalidad.setBounds(160,280,170,30);
 
+        jcomboTipoUsuario = new JComboBox();
+        jcomboTipoUsuario.setBounds(160,320,170,30);
+        jcomboTipoUsuario.addItem("Administrador");
+        jcomboTipoUsuario.addItem("Empleado");
+        jcomboTipoUsuario.addItem("Conserje");
+
         this.add(jPanel);
         jPanel.add(textFieldNombre);
         jPanel.add(textFieldApellido);
@@ -150,6 +162,8 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         jPanel.add(jlabelTelefono);
         jPanel.add(jlabelNacionalidad);
         jPanel.add(jcheckBox);
+        jPanel.add(jcomboTipoUsuario);
+        jPanel.add(jlabelTipoUsuario);
 
 
     }
@@ -199,8 +213,9 @@ public class RegistrarPasajeroGUI extends JFrame implements ActionListener{
         }
 
         try{
-            us.registrarUsuario(textFieldNombre.getText(),textFieldApellido.getText(),textFieldNombreUsuario.getText(),
-                    contrasenia, textFieldDni.getText(),jlabelTelefono.getText(),textFieldNacionalidad.getText());
+            JSONObject objDatos= us.registrarUsuario(textFieldNombre.getText(),textFieldApellido.getText(),textFieldNombreUsuario.getText(),
+                    contrasenia, textFieldDni.getText(),jlabelTelefono.getText(),textFieldNacionalidad.getText(),jcomboTipoUsuario.getSelectedIndex());
+            us.grabarRegistrosEnJson(objDatos);
             JOptionPane.showMessageDialog(null,"Ha sido registrado con exito !!");
         } catch(JSONException e){
             e.printStackTrace();

@@ -45,9 +45,15 @@ public class Usuario {
      * @throws JSONException
      */
     public JSONObject registrarUsuario(String nombre,String apellido, String username, String password,
-                                       String dni,String telefono,String nacionalidad) throws JSONException {
-        JsonUtiles jsonUt = new JsonUtiles();
-        JSONArray arregloJSON = new JSONArray();
+                                       String dni,String telefono,String nacionalidad,int tipoCliente) throws JSONException {
+        String tipoC="";
+        if(tipoCliente==0){
+            tipoC = "Administrador";
+        }if(tipoCliente==1){
+            tipoC = "Empleado";
+        }if(tipoCliente==2){
+            tipoC = "Conserje";
+        }
 
         JSONObject pasajeroDatos = new JSONObject();
         pasajeroDatos.put("nombre", nombre);
@@ -57,23 +63,18 @@ public class Usuario {
         pasajeroDatos.put("dni", dni);
         pasajeroDatos.put("telefono", telefono);
         pasajeroDatos.put("nacionalidad", nacionalidad);
+        pasajeroDatos.put("tipoCliente", tipoC);
 
         return pasajeroDatos;
     }
 
-    public void registrarUsurhtttario() throws JSONException {
+    public void grabarRegistrosEnJson(JSONObject jsonObj) throws JSONException {
 
         JsonUtiles jsonUt = new JsonUtiles();
-        JSONObject objetoJSON = new JSONObject();
         JSONArray arregloJSON = new JSONArray();
 
-
-        for(int i = 0; i < 5; i++){
-            arregloJSON.put(objetoJSON);
-        }
-
-        //jsonUt(arregloJSON,tipoAdmin);
-
+        arregloJSON.put(jsonObj);
+        jsonUt.grabar(arregloJSON,"registroAdmin.json");
     }
 
     public void leerDatosUsuario(int tipoUsuario) throws JSONException{
