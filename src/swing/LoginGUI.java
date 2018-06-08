@@ -1,11 +1,15 @@
 package swing;
 
+import app.JavaUtiles;
+import domain.Hotel;
 import domain.Usuario;
 import exepciones.CampoVacioException;
 import exepciones.InicioSesionException;
 import exepciones.InvalidUsernameAndPasswordException;
 import exepciones.InvalidUsernameException;
+import files.JsonUtiles;
 import jdk.nashorn.internal.scripts.JO;
+import org.json.JSONException;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,9 +23,13 @@ public class LoginGUI extends JFrame implements ActionListener{
     private JPasswordField passwordField;
     private JButton btnSalir;
     private JButton btnLoguearse;
+    private JButton btnRegistrarse;
     private JLabel jlabelUsuario;
     private JLabel jlabelPassword;
+    private JLabel jlabelRegistrarse;
     private String nombreUsuario,contrasena;
+    private JComboBox jcomboLogin;
+    private JLabel jlabelComboLogin;
     Component confirmacion;
 
     /**
@@ -41,7 +49,7 @@ public class LoginGUI extends JFrame implements ActionListener{
      */
     private void configurarVentana() {
         this.setTitle("Login");                   // colocamos titulo a la ventana
-        this.setSize(800, 600);                                 // colocamos tamanio a la ventana (ancho, alto)
+        this.setSize(350, 550);                                 // colocamos tamanio a la ventana (ancho, alto)
         this.setLocationRelativeTo(null);                       // centramos la ventana en la pantalla
         this.setLayout(null);                                   // no usamos ningun layout, solo asi podremos dar posiciones a los componentes
         this.setResizable(false);                               // hacemos que la ventana no sea redimiensionable
@@ -57,18 +65,17 @@ public class LoginGUI extends JFrame implements ActionListener{
         // creamos los componentes
         setIconImage(getIconImage());
         jPanel = new JPanel();
-        jPanel.setBounds(0,0,800,600);
+        jPanel.setBounds(0,0,350,550);
         jPanel.setLayout(null);
 
         textFieldUsername = new javax.swing.JTextField();
-        textFieldUsername.setBounds(300,330,170,30);
-        //textFieldUsername.setText("Ingrese su usuario: ");
+        textFieldUsername.setBounds(90,265,170,30);
 
         passwordField = new javax.swing.JPasswordField();
-        passwordField.setBounds(300,390,170,30);
+        passwordField.setBounds(90,320,170,30);
 
         btnSalir = new javax.swing.JButton();
-        btnSalir.setBounds(20,20,70,25);
+        btnSalir.setBounds(10,20,70,25);
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
@@ -77,7 +84,7 @@ public class LoginGUI extends JFrame implements ActionListener{
         });
 
         btnLoguearse = new javax.swing.JButton();
-        btnLoguearse.setBounds(300,450,170,40);
+        btnLoguearse.setBounds(90,380,170,40);
         btnLoguearse.setText("Iniciar Sesion");
         btnLoguearse.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(java.awt.event.ActionEvent evt){
@@ -85,13 +92,39 @@ public class LoginGUI extends JFrame implements ActionListener{
             }
         });
 
-        jlabelUsuario = new javax.swing.JLabel("Usuario: ");
-        jlabelUsuario.setBounds(300,300,170,30);
+        btnRegistrarse = new javax.swing.JButton();
+        btnRegistrarse.setBounds(90,450,170,40);
+        btnRegistrarse.setText("Registrarse");
 
-        jlabelPassword = new javax.swing.JLabel("Contrasena: ");
-        jlabelPassword.setBounds(300,360,170,30);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
 
 
+        jlabelUsuario = new javax.swing.JLabel("Ingrese su Usuario: ");
+        jlabelUsuario.setBounds(90,240,170,30);
+
+        jlabelPassword = new javax.swing.JLabel("Ingrese su Contrasena: ");
+        jlabelPassword.setBounds(90,295,170,30);
+
+        jlabelRegistrarse =new javax.swing.JLabel("No tienes cuenta? Click aqui");
+        jlabelRegistrarse.setBounds(90,425,200,30);
+
+        jcomboLogin = new JComboBox();
+        jcomboLogin.setBounds(90,130,170,30);
+        jcomboLogin.addItem("Administrador");
+        jcomboLogin.addItem("Empleado");
+        jcomboLogin.addItem("Conserje");
+
+        jlabelComboLogin = new javax.swing.JLabel("Loguearse como: ");
+        jlabelComboLogin.setBounds(90,100,170,30);
+
+        jPanel.add(jlabelComboLogin);
+        jPanel.add(jcomboLogin);
+        jPanel.add(jlabelRegistrarse);
+        jPanel.add(btnRegistrarse);
         jPanel.add(textFieldUsername);
         jPanel.add(passwordField);
         jPanel.add(btnSalir);
@@ -144,49 +177,129 @@ public class LoginGUI extends JFrame implements ActionListener{
     }
 
     /**
-     * En este metodo se ejecutara al presionar el boton btnSalir
-     * @param
+     *  Antes se hacia uso del metodo getText en el JPasswordField debido a que supuestamente aveces da errores
+     *  Por ese motivo ahora es un metodo descontinuado que no deberia usarse (aunque funciona xD)
+     *  Ejemplo:
+     *
+     *  String contrasenia =passwordField.getText()};
+     *
+     *   La manera correcta de obtener los valores de un JPasswordField es la siguiente:
+     * @param evt
      */
     private void btnLoguearseActionPerformed(java.awt.event.ActionEvent evt){
         Usuario us = new Usuario();
+        Hotel hotel = new Hotel();
+        JavaUtiles javaUtiles = new JavaUtiles();
+        String tipoUsuario="";
 
-        /*
-         *
-         *   Antes se hacia uso del metodo getText en el JPasswordField debido a que supuestamente aveces da errores
-         *  Por ese motivo ahora es un metodo descontinuado que no deberia usarse (aunque funciona xD)
-         *  Solo lo pongo como ejemplo:
-         *
-         *  String contrasenia =passwordField.getText()};
-         *
-         *   La manera correcta de obtener los valores de un JPasswordField es la siguiente:
-         * */
         char []caracteresContrasenia=passwordField.getPassword();//el metodo getPassword es el nuevo metodo que sustituye a getText en los JPaswordField y retorna un arreglo de caracteres por eso creo uno primero  y  despues hago la asignacion
         String contrasenia="";//declaro una variable llamada contrasenia para guardar en ella el arreglo de caracteres
         for (int i=0;i<caracteresContrasenia.length;i++) //Hago un for para recorrer el arreglo
         {
             contrasenia+=caracteresContrasenia[i];//uno todas las letras de cada posicion del arreglo para solo obtener una variable string con la contraseña
         }
-        /*
-         * Ahora podemos usar esa variable contrasenia para enviarla como parametro en el metodo
-         * */
+
+        //Me fijo que tipo de usuario fue seleccionado en el jcombobox para leer mi fichero json
+        tipoUsuario = getTipoDeUsuario();
+
+        //Ahora podemos usar esa variable contrasenia para enviarla como parametro en el metodo
 
             try {
-                us.loguearse(textFieldUsername.getText(),contrasenia);
+
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
                 AdministradorGUI adminGUI = new AdministradorGUI();
                 adminGUI.setVisible(true);
-                //this.dispose(); //cierro la ventana actual
+                this.dispose(); //cierro la ventana actual
             } catch (CampoVacioException e) {
                 JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e1) {
+                    e1.printStackTrace();
+                } catch (InvalidUsernameException e1) {
+                    e1.printStackTrace();
+                } catch (CampoVacioException e1) {
+                    e1.printStackTrace();
+                } catch (InicioSesionException e1) {
+                    e1.printStackTrace();
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
             } catch (InvalidUsernameException e) {
                 JOptionPane.showMessageDialog(null,"Usuario incorrecto");
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e1) {
+                    e1.printStackTrace();
+                } catch (InvalidUsernameException e1) {
+                    e1.printStackTrace();
+                } catch (CampoVacioException e1) {
+                    e1.printStackTrace();
+                } catch (InicioSesionException e1) {
+                    e1.printStackTrace();
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
             } catch (InvalidUsernameAndPasswordException e) {
                 JOptionPane.showMessageDialog(null,"Usuario o contrasenia incorrectos");
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e1) {
+                    e1.printStackTrace();
+                } catch (InvalidUsernameException e1) {
+                    e1.printStackTrace();
+                } catch (CampoVacioException e1) {
+                    e1.printStackTrace();
+                } catch (InicioSesionException e1) {
+                    e1.printStackTrace();
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
             }catch (InicioSesionException ex){
                 JOptionPane.showMessageDialog(null,"No has podido iniciar sesion"+ex.informa());
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e) {
+                    e.printStackTrace();
+                } catch (InvalidUsernameException e) {
+                    e.printStackTrace();
+                } catch (CampoVacioException e) {
+                    e.printStackTrace();
+                } catch (InicioSesionException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt){
+        RegistrarPasajeroGUI registroGUI = new RegistrarPasajeroGUI();
+        registroGUI.setVisible(true);
+        this.dispose();
+    }
+
+    public String getTipoDeUsuario(){
+        JavaUtiles utiles = new JavaUtiles();
+        int varSelected = jcomboLogin.getSelectedIndex();
+        if(varSelected == 0){
+            JOptionPane.showMessageDialog(null,"Administrador");
+            return utiles.getDirectorioAdmin();
+        }else if(varSelected == 1 || varSelected == 2){
+            JOptionPane.showMessageDialog(null,"Empleado");
+            return utiles.getDirectorioUsuarioEstandar();
+        }else if(varSelected == 2){
+            JOptionPane.showMessageDialog(null,"Conserje");
+            return utiles.getDirectorioUsuarioEstandar();
+        }
+        return "";
+    }
 
     /**
      * Main method, utiliza la interfaz Runnable para que podamos ejecutar

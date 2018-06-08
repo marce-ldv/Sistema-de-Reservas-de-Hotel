@@ -4,6 +4,12 @@ import exepciones.CampoVacioException;
 import exepciones.InicioSesionException;
 import exepciones.InvalidUsernameAndPasswordException;
 import exepciones.InvalidUsernameException;
+import files.JsonUtiles;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import swing.LoginGUI;
+import swing.RegistrarPasajeroGUI;
 
 public class Usuario {
 
@@ -28,41 +34,58 @@ public class Usuario {
     }
 
     /**
-     * Este metodo permite hacer la validacion del login
-     * Recibe como argumentos las cadenas de texto del usuario y contraseña
+     * Recibe los datos de un usario que se registro en el JFrame RegistrarPAsajeroGUI, esa informacion la conviene en un
+     * objeto JSON y la retorna
+     * @param nombre
+     * @param apellido
+     * @param username
+     * @param password
+     * @param dni
+     * @param telefono
+     * @param nacionalidad
+     * @return
+     * @throws JSONException
      */
-    /*
-    public boolean loguearse(String user,String pass){
-
-        if((usuario.equals(user)) && (password.equals(pass))){
-            return true;
-        }else if((usuario.equals("")) && (password.equals(""))){
-            JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
-            return false;
-        }else if((usuario.equals(""))){
-            JOptionPane.showMessageDialog(null,"El campo usuario esta vacio");
-            return false;
-        }else if((password.equals(""))){
-            JOptionPane.showMessageDialog(null,"El campo password esta vacio");
-            return false;
-        }else if((usuario.compareTo(user) != 0) && (password.compareTo(pass) != 0)){
-            JOptionPane.showMessageDialog(null,"Usuario o contrasenia incorrectos");
-            return false;
-        }else{
-            return false;
+    public JSONObject registrarUsuario(String nombre,String apellido, String username, String password,
+                                       String dni,String telefono,String nacionalidad,int tipoCliente) throws JSONException {
+        String tipoC="";
+        if(tipoCliente==0){
+            tipoC = "Administrador";
+        }if(tipoCliente==1){
+            tipoC = "Empleado";
+        }if(tipoCliente==2){
+            tipoC = "Conserje";
         }
+
+        JSONObject pasajeroDatos = new JSONObject();
+        pasajeroDatos.put("nombre", nombre);
+        pasajeroDatos.put("apellido", apellido);
+        pasajeroDatos.put("username", username);
+        pasajeroDatos.put("password", password);
+        pasajeroDatos.put("dni", dni);
+        pasajeroDatos.put("telefono", telefono);
+        pasajeroDatos.put("nacionalidad", nacionalidad);
+        pasajeroDatos.put("tipoCliente", tipoC);
+
+        return pasajeroDatos;
     }
-    */
-    public boolean loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, InvalidUsernameException, CampoVacioException, InicioSesionException {
 
-        if ((usuario.equals(user)) && (password.equals(pass))) {
-            return true;
-        } else {
-            if ((usuario.equals("")) || (password.equals(""))) {
-                throw new CampoVacioException("");
-            } else {
-                throw new InvalidUsernameAndPasswordException(user);
-            }
-        }
+    public void grabarRegistrosEnJson(JSONObject jsonObj,String tipoUsuario) throws JSONException {
+        Hotel hotel = new Hotel();
+        JsonUtiles jsonUt = new JsonUtiles();
+        LoginGUI loguinGui=new LoginGUI();
+        JSONArray arregloJSON = new JSONArray(hotel.leerDatosUsuario(tipoUsuario));
+        
+        arregloJSON.put(jsonObj);
+        jsonUt.grabar(arregloJSON,tipoUsuario);
+
+    }
+
+        public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
