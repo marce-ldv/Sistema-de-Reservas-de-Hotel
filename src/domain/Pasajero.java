@@ -40,6 +40,11 @@ public class Pasajero
 		idPasajero = idPasajeroRecib;
 	}
 
+	/**
+	 * metodos
+	 * @return
+	 */
+
 	public String getNombre() {
 		return nombre;
 	}

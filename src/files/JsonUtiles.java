@@ -24,16 +24,13 @@ public class JsonUtiles{
         }
     }
 
-    public String leer(String nombreDirectorio)
-    {
-        try
-        {
+    public String leer(String nombreDirectorio) {
+        try{
             String contenido = new String(Files.readAllBytes(Paths.get(nombreDirectorio)));
             System.out.println(contenido);
             return contenido;
         }
-        catch (IOException e)
-        {
+        catch (IOException e){
             e.printStackTrace();
             return "";
         }

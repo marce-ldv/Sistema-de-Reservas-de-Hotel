@@ -3,8 +3,7 @@ package domain;
 //hola chivos
 
 public class Factura {
-	
-<<<<<<< HEAD
+
 	//Datos del vendedor (hotel)
 	private final String Nombre_empresa= "Trivago";
 	private final String Razon_social= "Trivago S.A";
