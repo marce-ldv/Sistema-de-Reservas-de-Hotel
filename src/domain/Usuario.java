@@ -71,10 +71,10 @@ public class Usuario {
     }
 
     public void grabarRegistrosEnJson(JSONObject jsonObj,String tipoUsuario) throws JSONException {
-
+        Hotel hotel = new Hotel();
         JsonUtiles jsonUt = new JsonUtiles();
         LoginGUI loguinGui=new LoginGUI();
-        JSONArray arregloJSON = new JSONArray(leerDatosUsuario(tipoUsuario));
+        JSONArray arregloJSON = new JSONArray(hotel.leerDatosUsuario(tipoUsuario));
         
         arregloJSON.put(jsonObj);
         jsonUt.grabar(arregloJSON,tipoUsuario);

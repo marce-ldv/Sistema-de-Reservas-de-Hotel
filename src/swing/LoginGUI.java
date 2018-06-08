@@ -206,23 +206,75 @@ public class LoginGUI extends JFrame implements ActionListener{
 
             try {
 
-                hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
                 AdministradorGUI adminGUI = new AdministradorGUI();
                 adminGUI.setVisible(true);
                 this.dispose(); //cierro la ventana actual
             } catch (CampoVacioException e) {
                 JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
-                hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e1) {
+                    e1.printStackTrace();
+                } catch (InvalidUsernameException e1) {
+                    e1.printStackTrace();
+                } catch (CampoVacioException e1) {
+                    e1.printStackTrace();
+                } catch (InicioSesionException e1) {
+                    e1.printStackTrace();
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
             } catch (InvalidUsernameException e) {
                 JOptionPane.showMessageDialog(null,"Usuario incorrecto");
-                hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e1) {
+                    e1.printStackTrace();
+                } catch (InvalidUsernameException e1) {
+                    e1.printStackTrace();
+                } catch (CampoVacioException e1) {
+                    e1.printStackTrace();
+                } catch (InicioSesionException e1) {
+                    e1.printStackTrace();
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
             } catch (InvalidUsernameAndPasswordException e) {
                 JOptionPane.showMessageDialog(null,"Usuario o contrasenia incorrectos");
-                hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e1) {
+                    e1.printStackTrace();
+                } catch (InvalidUsernameException e1) {
+                    e1.printStackTrace();
+                } catch (CampoVacioException e1) {
+                    e1.printStackTrace();
+                } catch (InicioSesionException e1) {
+                    e1.printStackTrace();
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
             }catch (InicioSesionException ex){
                 JOptionPane.showMessageDialog(null,"No has podido iniciar sesion"+ex.informa());
-                hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                try {
+                    hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                } catch (InvalidUsernameAndPasswordException e) {
+                    e.printStackTrace();
+                } catch (InvalidUsernameException e) {
+                    e.printStackTrace();
+                } catch (CampoVacioException e) {
+                    e.printStackTrace();
+                } catch (InicioSesionException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
