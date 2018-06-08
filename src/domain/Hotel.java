@@ -18,7 +18,17 @@ public class Hotel
         return jsonUt.leer(tipoUsuario);
     }
 
-
+    /**
+     * Devuelve un usuario logueado
+     * @param user
+     * @param pass
+     * @return
+     * @throws InvalidUsernameAndPasswordException
+     * @throws InvalidUsernameException
+     * @throws CampoVacioException
+     * @throws InicioSesionException
+     * @throws JSONException
+     */
     public Usuario loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, InvalidUsernameException, CampoVacioException, InicioSesionException, JSONException {
         LoginGUI loginGUI = new LoginGUI();
         Usuario usu = null;

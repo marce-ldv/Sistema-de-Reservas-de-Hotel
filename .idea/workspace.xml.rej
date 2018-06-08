@@ -1,0 +1,9 @@
+diff a/.idea/workspace.xml b/.idea/workspace.xml	(rejected hunks)
+@@ -4,7 +4,6 @@
+     <list default="true" id="2064f36c-95f5-4f1c-9df4-18ff0dd8a3ed" name="Default" comment="">
+       <change beforePath="$PROJECT_DIR$/registroAdmin.json" beforeDir="false" afterPath="$PROJECT_DIR$/registroAdmin.json" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/domain/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Usuario.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/RegistrarPasajeroGUI.java" afterDir="false" />
+     </list>
+     <ignored path="$PROJECT_DIR$/bin/" />
+     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

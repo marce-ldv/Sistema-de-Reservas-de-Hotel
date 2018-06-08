@@ -30,16 +30,6 @@ public class Factura {
 	private double monto_total;
 	private char tipo;
 	
-	
-	public
-	
-	
-	
-	
-	
-	
-	
-	
 	public Factura(String nombre_comprador, String cuit_comprador, String domicilio_comprador,
 			String condicion_de_venta, String comprador_condicion_frente_al_iva, int nro_de_compra,
 			Date fecha_de_emision, double monto_minibar, double monto_habitacion, double otros_conceptos, int descuento,
