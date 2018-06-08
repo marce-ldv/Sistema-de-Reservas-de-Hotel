@@ -1,9 +1,10 @@
 package domain;
 
-import java.util.Date;
+//hola chivos
 
 public class Factura {
 	
+<<<<<<< HEAD
 	//Datos del vendedor (hotel)
 	private final String Nombre_empresa= "Trivago";
 	private final String Razon_social= "Trivago S.A";
@@ -58,4 +59,8 @@ public class Factura {
 	
 	
 	
+=======
+	//Esta es la clase de Rodrigo, por favor Franco no me la saques.
+
+>>>>>>> parent of f95b686... Algunas cosas que hice en las facturas (poco)
 }
