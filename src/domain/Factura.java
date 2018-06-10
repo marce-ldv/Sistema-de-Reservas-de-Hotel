@@ -31,7 +31,11 @@ public class Factura {
 	private char tipo;
 
 	/**
+<<<<<<< HEAD
 	 *
+=======
+	 * 
+>>>>>>> 7767c783c07e94d9f747a839d7402b80d9505903
 	 * @param nombre_comprador
 	 * @param cuit_comprador
 	 * @param domicilio_comprador
