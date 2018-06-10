@@ -11,6 +11,12 @@ import java.nio.file.Paths;
 
 public class JsonUtiles{
     public JsonUtiles(){}
+    
+    /**
+     * 
+     * @param array
+     * @param nombreDirectorio
+     */
 
     public void grabar(JSONArray array,String nombreDirectorio) {
         try {
@@ -24,6 +30,11 @@ public class JsonUtiles{
         }
     }
 
+    /**
+     * 
+     * @param nombreDirectorio
+     * @return
+     */
     public String leer(String nombreDirectorio) {
         try{
             String contenido = new String(Files.readAllBytes(Paths.get(nombreDirectorio)));

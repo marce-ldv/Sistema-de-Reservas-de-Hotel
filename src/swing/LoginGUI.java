@@ -284,6 +284,11 @@ public class LoginGUI extends JFrame implements ActionListener{
         registroGUI.setVisible(true);
         this.dispose();
     }
+    
+    /**
+     * 
+     * @return
+     */
 
     public String getTipoDeUsuario(){
         JavaUtiles utiles = new JavaUtiles();

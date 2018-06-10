@@ -29,6 +29,22 @@ public class Factura {
 	private int descuento;
 	private double monto_total;
 	private char tipo;
+
+	/**
+	 *
+	 * @param nombre_comprador
+	 * @param cuit_comprador
+	 * @param domicilio_comprador
+	 * @param condicion_de_venta
+	 * @param comprador_condicion_frente_al_iva
+	 * @param nro_de_compra
+	 * @param fecha_de_emision
+	 * @param monto_minibar
+	 * @param monto_habitacion
+	 * @param otros_conceptos
+	 * @param descuento
+	 * @param tipo
+	 */
 	
 	public Factura(String nombre_comprador, String cuit_comprador, String domicilio_comprador,
 			String condicion_de_venta, String comprador_condicion_frente_al_iva, int nro_de_compra,
