@@ -1,7 +1,5 @@
 package domain;
 
-//hola chivos
-
 public class Factura {
 
 	//Datos del vendedor (hotel)
@@ -30,25 +28,6 @@ public class Factura {
 	private double monto_total;
 	private char tipo;
 
-	/**
-<<<<<<< HEAD
-	 *
-=======
-	 * 
->>>>>>> 7767c783c07e94d9f747a839d7402b80d9505903
-	 * @param nombre_comprador
-	 * @param cuit_comprador
-	 * @param domicilio_comprador
-	 * @param condicion_de_venta
-	 * @param comprador_condicion_frente_al_iva
-	 * @param nro_de_compra
-	 * @param fecha_de_emision
-	 * @param monto_minibar
-	 * @param monto_habitacion
-	 * @param otros_conceptos
-	 * @param descuento
-	 * @param tipo
-	 */
 	
 	public Factura(String nombre_comprador, String cuit_comprador, String domicilio_comprador,
 			String condicion_de_venta, String comprador_condicion_frente_al_iva, int nro_de_compra,
@@ -69,17 +48,4 @@ public class Factura {
 		monto_total=(monto_minibar+(monto_habitacion*(1-descuento/100))+otros_conceptos)*121/100;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-=======
-	//Esta es la clase de Rodrigo, por favor Franco no me la saques.
-
->>>>>>> parent of f95b686... Algunas cosas que hice en las facturas (poco)
 }
