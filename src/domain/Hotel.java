@@ -29,7 +29,9 @@ public class Hotel
      * @throws InicioSesionException
      * @throws JSONException
      */
-    public Usuario loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, InvalidUsernameException, CampoVacioException, InicioSesionException, JSONException {
+    public Usuario loguearse(String user, String pass) throws InvalidUsernameAndPasswordException, 
+    CampoVacioException, InicioSesionException, JSONException, InvalidUsernameException {
+    	
         LoginGUI loginGUI = new LoginGUI();
         Usuario usu = null;
         String objUsuarios="";
@@ -40,6 +42,9 @@ public class Hotel
             JSONArray jsonArray = new JSONArray(objUsuarios);
             for (int i=0; i<jsonArray.length();i++)
             {
+            	if(user.equals("") || pass.equals("")) {
+            		throw new CampoVacioException("Uno de los campos se encuentra vacio ");
+            	}
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 if (jsonObject.getString("usernane").equals(user))
                 {
@@ -51,13 +56,15 @@ public class Hotel
                     }
                     else
                     {
-//contraseña incorrecta exception
+                    	//invalid pasword exception
                     }
+                }else {
+                	throw new InvalidUsernameException("Nombre de usuario incorrecto");
                 }
             }
             if (usu==null)
             {
-                //usu no encontrado exception
+                throw new InvalidUsernameAndPasswordException("El usuario o la contrasenia son incorreectos ");
             }
         return usu;
     }

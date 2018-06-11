@@ -208,13 +208,14 @@ public class LoginGUI extends JFrame implements ActionListener{
 
                 try {
                     hotel.loguearse(textFieldUsername.getText(),contrasenia);
+                    JOptionPane.showMessageDialog(null,"Te has logeado");
+                    AdministradorGUI adminGUI = new AdministradorGUI();
+                    adminGUI.setVisible(true);
+                    this.dispose(); //cierro la ventana actual
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                JOptionPane.showMessageDialog(null,"Te has logeado como administrador");
-                AdministradorGUI adminGUI = new AdministradorGUI();
-                adminGUI.setVisible(true);
-                this.dispose(); //cierro la ventana actual
+                
             } catch (CampoVacioException e) {
                 JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
                 try {
