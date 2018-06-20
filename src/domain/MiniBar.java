@@ -18,8 +18,9 @@ public class MiniBar <T>
 		}		
 	}
 
-	public void pausarConsumicion() // ni idea 
+	public void pausarConsumicion() // ni idea como hacerlo  
 	{
+		
 
 	}
 

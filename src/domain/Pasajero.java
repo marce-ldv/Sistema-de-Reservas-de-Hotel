@@ -11,11 +11,12 @@ public class Pasajero
 	private String telefono;
 	private String Nacionalidad;
 	private List historial;
-	private int idPasajero;
+	private Integer idPasajero;
+	private Integer billetera;
+	
 	
 	public Pasajero() 
 	{
-		super();
 		nombre = null;
 		apellido = null;
 		dni = null;
@@ -27,9 +28,8 @@ public class Pasajero
 	}
 	
 	public Pasajero(String nombreRecib, String apellidoRecib, String dniRecib, String numTarjetaCreditoRecib, String telefonoRecib,
-			String nacionalidadRecib, List historialRecib, int idPasajeroRecib) 
+			String nacionalidadRecib, List historialRecib, Integer idPasajeroRecib) 
 	{
-		super();
 		nombre = nombreRecib;
 		apellido = apellidoRecib;
 		dni = dniRecib;
@@ -38,6 +38,19 @@ public class Pasajero
 		Nacionalidad = nacionalidadRecib;
 		historial = historialRecib;
 		idPasajero = idPasajeroRecib;
+	}
+	
+	public Pasajero(String nombreRecib, String apellidoRecib, String dniRecib, String telefonoRecib,
+			String nacionalidadRecib, List historialRecib, Integer idPasajeroRecib, Integer billeteraRecib) 
+	{
+		nombre = nombreRecib;
+		apellido = apellidoRecib;
+		dni = dniRecib;
+		telefono = telefonoRecib;
+		Nacionalidad = nacionalidadRecib;
+		historial = historialRecib;
+		idPasajero = idPasajeroRecib;
+		billetera = billeteraRecib;
 	}
 
 	public String getNombre() {
@@ -96,11 +109,11 @@ public class Pasajero
 		this.historial = historial;
 	}
 
-	public int getIdPasajero() {
+	public Integer getIdPasajero() {
 		return idPasajero;
 	}
 
-	public void setIdPasajero(int idPasajero) {
+	public void setIdPasajero(Integer idPasajero) {
 		this.idPasajero = idPasajero;
 	}
 

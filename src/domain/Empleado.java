@@ -4,7 +4,7 @@ public class Empleado extends Usuario
 {
 	public Empleado() // no se como hacer el constructor...
 	{
-		
+		super();
 	}
 	
 	public boolean pedirComida(String comida)

@@ -3,18 +3,16 @@ package domain;
 public class Consumicion 
 {
 	private double costo;
-	private int idReserva;
+	private Integer idReserva;
 	
 	public Consumicion() 
 	{
-		super();
 		costo = 0;
 		idReserva = 0;
 	}
 	
-	public Consumicion(double costoRecib, int idReservaRecib) 
+	public Consumicion(double costoRecib, Integer idReservaRecib) 
 	{
-		super();
 		costo = costoRecib;
 		idReserva = idReservaRecib;
 	}
@@ -35,7 +33,7 @@ public class Consumicion
 		return idReserva;
 	}
 
-	public void setIdReserva(int idReserva) 
+	public void setIdReserva(Integer idReserva) 
 	{
 		this.idReserva = idReserva;
 	}
